@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block css %}
+<link href="static/css/device.css" rel="stylesheet">
+{% endblock %}
+{% block js %}
+<script src="static/js/device.js"></script>
+{% endblock %}
+{% block content %}
+
+<div class="modal fade" id='config' tabindex="-1" role="dialog" aria-labelledby="deviceconfig">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" >Device config</h4>
+			</div>
+			<div class="modal-body">
+				<p>
+					Create a config file and paste this information inside it. NOTE: Once you close this window you will not see this information again. If you atte
+				</p>
+				<pre id="deviceconfigbody"></pre>	
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<table class="table table-striped">
+		<tr>
+			<th style="width:70%;">Device</th>
+			<th>Options</th>
+		</tr>
+		{% for d in devices %}
+		<tr>
+			<td>{{ d.device_name }}</td>
+			<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#config" data-backdrop='static' data-deviceid={{ d.dev_id }} >
+			{% if d.device_privatekey %}
+			Renew config
+			{% else %}
+			New config
+			{% endif %}
+			</button></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

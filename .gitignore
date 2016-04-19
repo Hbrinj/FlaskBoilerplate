@@ -1,0 +1,8 @@
+*.py[cod]
+
+src/flask/*
+src/*.db
+src/db_repository*
+.DS_store
+*.map
+

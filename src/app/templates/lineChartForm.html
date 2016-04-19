@@ -1,0 +1,45 @@
+<div id="linechartForm" hidden>
+	<form class="form-inline" id="linechartForm2">
+		<div class="form-group ">
+			<label>Title</label>
+			<input type="text" class="form-control" placeholder="Title" name="title">
+		</div>
+		<div class="form-group">
+			<label>Device</label>
+			<select class="form-control" id="linechartDevice" name="device">
+				<option selected disabled>Please select</option>
+				{% for d in devices %}
+				<option value={{ d.dev_id }}>{{ d.device_name }} </option>
+				{% endfor %}
+			</select>
+		</div>
+		</br>
+		</br>
+		<div class="btn-group">
+			<button class="btn btn-default" id="linechartAddLineButton">Add line</button>
+			<button class="btn btn-default" id="linechartDeleteLineButton">Delete line</button>
+		</div>
+		</br>
+		</br>
+		<div id='linechartLineGroup'>
+			<div id='linechartLine'>
+				<div class="form-group">
+					<label for="linechartLineColor">Line</label>
+					<div class="input-group colorpicker-component linechartLineColor">
+						<input type="text" value="#00AABB" class="form-control" name="linecolor"/>
+						<span class="input-group-addon"><i></i></span>
+					</div>
+				</div>
+				<div class=form-group>
+					<label for="linechartData">Data</label>
+					<select class="form-control linechartDatalist" name="datalist">
+					</select>
+				</div>
+			</div>
+		</div>
+		</br>
+		<div class="modal-footer">
+			<button class="btn btn-primary" id="linechartAddButton">Add</button>
+		</div>
+	</form>
+</div>
